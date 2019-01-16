@@ -123,3 +123,15 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.height50 {height: 60px;
+  width: auto}
+
+.minheight700 {
+    min-height: 700px;
+  }
+
+.center { align-content: center}
+
+#opac5 {  opacity: 0.3;
+  filter: alpha(opacity=30) }

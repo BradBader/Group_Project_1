@@ -18,12 +18,14 @@
         <nav>
             <!-- <div class="container col l10 m10 s10 ctr"> -->
             <div class="nav-wrapper grey lighten-1">
-                <a href="#" class="brand-logo center">manDown Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <!-- <li><a href="sass.html">Sass</a></li>
+                <h5 class="center">a manDown Production</h5>
+                <!-- <a href="#" class="brand-logo center"></a> -->
+
+                <!-- <ul id="nav-mobile" class="right hide-on-med-and-down"> -->
+                <!-- <li><a href="sass.html">Sass</a></li>
                     <li><a href="badges.html">Components</a></li>
                     <li><a href="collapsible.html">JavaScript</a></li> -->
-                </ul>
+
             </div>
             <!-- </div> -->
         </nav>
@@ -43,65 +45,131 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l5 offset-l1 m5 offset-m1 s5 offset-s1">
+            <div class="col l6 offset-l1 m6 offset-m1 s6 offset-s1">
                 <div class="card">
                     <div class="card-image">
-                        <img class="flowhid" src="Assets/Images/cuttingboard.jpeg">
-                        <span class="card-title">Recipe Information</span>
+                        <img class="flowhid" id="opac5" src="Assets/Images/cherry-food-fresh-890507.jpg">
+                        <span class="card-title">
+                            <h3>What would you like to eat?</h3>
+                        </span>
                     </div>
                     <div class="card-content center">
-                        <button class="waves-effect waves-light grey dark-1 btn-small" value=""><i class="material-icons left">local_dining</i>Food</button>
-                        <button class="waves-effect waves-light grey dark-1 btn-small" value=""><i class="material-icons left">local_drink</i>Beverage</button>
-                        <button class="waves-effect waves-light grey dark-1 btn-small" value=""><i class="material-icons left">drive_eta</i>Pick Something Up</button>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <div class="row">
+                            <button class="waves-effect waves-light grey dark-1 btn-large" value="food"><i class="material-icons left">local_dining</i>Food</button>
+                            <button class="waves-effect waves-light grey dark-1 btn-large" value="drink"><i class="material-icons left">local_drink</i>Beverage</button>
+                            <button class="waves-effect waves-light grey dark-1 btn-large" value="other"><i class="material-icons left">drive_eta</i>Pick
+                                Something Up</button>
+                        </div>
+                        <div class="row">
+                            <form class="col s6">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="include" class="materialize-textarea"></textarea>
+                                        <label for="include">Include the following ingredients:</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <form class="col s6">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="exclude" class="materialize-textarea"></textarea>
+                                        <label for="exclude">Exclude the following ingredients</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row" id="submitRow">
+                                <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-large" type="submit"
+                                    name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
+                    <!-- <div class="card-action">
+                        <a href="#">This is a link to nowhere</a>
+                    </div> -->
                 </div>
             </div>
 
-            <div class="col l5 m5 s5">
-                <div class="card">
-                    <div class="card-image">
-                        <img class="flowhid" src="Assets/Images/cuttingboard.jpeg">
-                        <span class="card-title">Recipe Information</span>
-                    </div>
+            <div class="col s5 m5 l5">
+                <div class="card grey lighten-4">
                     <div class="card-content">
-
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <span class="card-title">Card Title</span>
+                        <ul id="recipeOne">
+                            <li>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</li>I am a very
+                            simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.
+                        </ul>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
+                        <p>
+                            content
+                        </p>
                     </div>
                     <div class="card-action">
+                        <a href="#">This is a link</a>
                         <a href="#">This is a link</a>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <footer class="page-footer grey darken-5">
-                <div class="container">
-                  <div class="row">
-                    <div class="col l6 s12">
-                      <h5 class="white-text">Footer Content</h5>
-                      <!-- <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
+            <div class="container center">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <!-- <h5 class="white-text">Footer Content</h5> -->
+                        <img class="brand-logo height50 center" src="Assets/Images/manDown.png">
+                        <!-- <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
                     </div>
                     <div class="col l4 offset-l2 s12">
-                      <!-- <h5 class="white-text">Links</h5>
+                        <!-- <h5 class="white-text">Links</h5>
                       <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
-                      </ul>
+                        </ul>
                     </div>
-                  </div>
                 </div>
-                <div class="footer-copyright grey darken-1">
-                  <div class="container center">
-                  © manDown production 2019
-                  <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
-                  </div>
+            </div>
+            <div class="footer-copyright grey darken-1">
+                <div class="container center">
+                    © manDown production 2019
+                    <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
                 </div>
-              </footer>
+
+            </div>
+        </footer>
         <!-- <div class="col l4 m4 s4">
                     <h1> generic placeholder text left container</h1>
 
