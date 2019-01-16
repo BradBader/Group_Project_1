@@ -11,18 +11,12 @@ nav .brand-logo {
   color: #444;
 }
 
+body {background-image: url("../Images/tapes.jpg")
+}
 
 /* .nav-wrapper {
   background-color: lightskyblue
 } */
-
-
-.bk-grey {
-  /* background-color: dimgrey; */
-  border-style: solid;
-}
-
-.brdsolid {border-style: solid, black, 2px}
 
 p {
   line-height: 2rem;
@@ -104,34 +98,5 @@ label {color:white;
 font-size: 14px;
 text-shadow: 1px 1px black;}
 
-.card .card-image .card-title {
-  color: rgb(0, 0, 0);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  max-width: 100%;
-  padding: 24px;
-  text-shadow: 1px 1px #fff;
-}
 
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
 
-main {
-  flex: 1 0 auto;
-}
-
-.height50 {height: 60px;
-  width: auto}
-
-.minheight700 {
-    min-height: 700px;
-  }
-
-.center { align-content: center}
-
-#opac5 {  opacity: 0.3;
-  filter: alpha(opacity=30) }
