@@ -10,13 +10,13 @@ function getRecipes(x)
   for(i=0;i<mealResults.length;i++)
   {
     
-    var rImg = $("<img>").attr("src",mealResults[i].recipe.image);
+    var rImg = $("<img>").addClass("edamam").attr("src",mealResults[i].recipe.image);
     var imgDiv = $("<div>").addClass("card-image").append(rImg);
     var rTitle = $("<span>").addClass("card-title").text(mealResults[i].recipe.label)
     var rIng = mealResults[i].recipe.ingredientLines;
     var rlist = ingredientList(rIng);
     var rContent = $("<div>").addClass("card-content white-text");
-    var rCard = $("<div>").addClass("card grey lighten 4")
+    var rCard = $("<div>").addClass("card grey blue lighten-5")
 
     rCard.append(imgDiv, rTitle, rContent, rlist);
     $("#recipeList").append(rCard);
