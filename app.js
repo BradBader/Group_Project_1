@@ -2,30 +2,26 @@ var ingredientsArray = [];
 
 $(document).ready(function(){
 
+//Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
 function getRecipes(x)
 {
+//Clears any previous content where the Recipes will be displayed
   $("#recipeList").empty();
   var mealResults = x.hits;
+//Cycles through all the results to separate them into their own cards. 
 
   for(i=0;i<mealResults.length;i++)
   {
-    
-    // var rImg = $("<img>").addClass("edamam").attr("src",mealResults[i].recipe.image);
-    // var imgDiv = $("<div>").addClass("card-image").append(rImg);
-    // var rTitle = $("<span>").addClass("card-title").text(mealResults[i].recipe.label)
-    // var rIng = mealResults[i].recipe.ingredientLines;
-    // var rlist = ingredientList(rIng);
-    // var rCard = $("<div>").addClass("card grey blue lighten-5")
-
-    // rCard.append(imgDiv, rTitle, rlist);
-    // $("#recipeList").append(rCard);
     var rCol = $("<div>").addClass("col s2");
+    //Adds a link to the Full Recipe on the image of the result
     var rImg = $("<img>").attr("src",mealResults[i].recipe.image);
-    var imgDiv = $("<div>").addClass("card-image").append(rImg);
-    var rTitle = $("<span>").addClass("card-title center pd10").text(mealResults[i].recipe.label)
+    var linkUrl = mealResults[i].recipe.url;
+    var rLink = $("<a>").attr("href", linkUrl).attr("target", "_blank");
+    (rLink).append(rImg);
+    var imgDiv = $("<div>").addClass("card-image").append(rLink);
+    var rTitle = $("<div>").addClass("card-title center pd10").text(mealResults[i].recipe.label)
     var rIng = mealResults[i].recipe.ingredientLines;
     var rlist = ingredientList(rIng);
-    var rContent = $("<div>").addClass("card-content white-text");
     var rCard = $("<div>").addClass("card grey lighten 4 left")
  
     rCard.append(imgDiv, rTitle, rlist);
@@ -37,6 +33,7 @@ function getRecipes(x)
 
 };
 
+//Function that takes the input from the "Ingredients" form and separates them, trims them and returns a variable to be inserted into the Query URL
 function ingSearch(p)
 {
   var separateIngs = p.split(",");
@@ -55,6 +52,7 @@ function ingSearch(p)
   
 }
 
+//Function that takes the input from the "Excluded" form and separates them, trims them and returns a variable to be inserted into the Query URL
 function exclSearch(q)
 {
   var separateExcl = q.split(",");
@@ -72,10 +70,15 @@ function exclSearch(q)
   return exclURL;
   
 }
+
+//Creates the Ingredients List based on the input for each recipe
 function ingredientList(a)
 {
+
+//Creates a div where all the ingredients will go
  var recipeText = $("<div>").addClass("fHeight");
 
+//Runs through every ingredient in the array in order to separate them into their own line/paragraph
   for(var x = 0; x<a.length; x++)
   {
     var ingText = $("<p>").text(a[x]);
@@ -88,19 +91,22 @@ function getRestaurants()
 
 };
 
+//Creates an event listener that waits for the user to click the "Submit" button in order to begin the recipe search
 $("#submit").on("click", function(event){
 
+//Prevents the listener to continue with a blank search
 event.preventDefault();
 
-// var ingredient = "q=" + $("#include").val().trim();
+//Runs the Ingredient and Exclution functions in order to make sure the values are inputted correctly
 var ingredient = ingSearch($("#include").val().trim());
-// var exclude = $("#exclude").val().trim();
 var exclude = exclSearch($("#exclude").val().trim());
 var foodURL = "";
-// https://api.edamam.com/search?q=chicken&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free"
+
+//Creates a variable with the API Key and ID for the Edamam API
 var key = "app_key=3d809e0fa0e02efd9cc77818c1a35988";
 var id = "app_id=00bc6d9d";
 
+//Verifies if the "Excluded" field is empty or not. If it is then it just searches for ingredients. If it isn't empty then it adds the "excluded" ingredients to the search
 if (exclude != "")
 {
 foodURL = "https://api.edamam.com/search?" + id + "&" + key + "&" + ingredient + "&" + "excluded=" + exclude;
@@ -109,16 +115,18 @@ console.log(foodURL);
   foodURL =  "https://api.edamam.com/search?" + id + "&" + key + "&" + ingredient;
 }
 
+//Sends the AJAX request to the API with the complete URL
 $.ajax({
     url: foodURL,
     method: "GET"
+  //Waits for the response to arrive before calling the getRecipes function in order to display the results
   }).then(function(response) {
     
     getRecipes(response);
 
   })
 
-
+//Clears the "Include" and "Exclude" forms getting ready for the next search
   $("#include").val("");
   $("#exclude").val("");
 });
