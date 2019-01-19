@@ -6,6 +6,7 @@ $(document).ready(function () {
   function getRecipes(x) {
     //Clears any previous content where the Recipes will be displayed
     $("#recipeList").empty();
+    $("#recipeList2").empty();
     var mealResults = x.hits;
     //Cycles through all the results to separate them into their own cards. 
 
