@@ -1,7 +1,10 @@
 var ingredientsArray = [];
 
 $(document).ready(function () {
-
+  // initializes dropdown
+  $('select').formSelect();
+  //hides restaraunt row on page load
+  $("#restaraunt").hide()
   //Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
   function getRecipes(x) {
     //Clears any previous content where the Recipes will be displayed
@@ -10,8 +13,8 @@ $(document).ready(function () {
     //Cycles through all the results to separate them into their own cards. 
 
     for (i = 0; i < mealResults.length; i++) {
-      if (i ==0 || i ==5 ) {
-      var rCol = $("<div>").addClass("col s2 offset-s1");
+      if (i == 0 || i == 5) {
+        var rCol = $("<div>").addClass("col s2 offset-s1");
       } else {
         var rCol = $("<div>").addClass("col s2");
       }
@@ -33,9 +36,17 @@ $(document).ready(function () {
         $("#recipeList").append(rCol);
       } else {
         $("#recipeList2").append(rCol);
-      } 
+      }
     }
   };
+  // sets foodType variable to dropdown menu selection
+  $("#submitTer").on("click", function () {
+    foodType = $("#dropDown").val().trim();
+    console.log(foodType);
+  })
+  $("#pickUp").on("click", function () {
+    $("#restaraunt").show();
+  })
 
   //Function that takes the input from the "Ingredients" form and separates them, trims them and returns a variable to be inserted into the Query URL
   function ingSearch(p) {
@@ -136,3 +147,4 @@ $(document).ready(function () {
   })
 
 })
+
