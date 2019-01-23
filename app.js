@@ -131,8 +131,20 @@ $(document).ready(function () {
   })
 
   $("#restaurant-submit").on("click", function () {
+    event.preventDefault();
 
+   var userCity = $("#ciyName").val().trim();
+   var userType = $("#restaurant").val();
 
+   
+   $.ajax({
+    url: foodURL,
+    method: "GET"
+  }).then(function (response) {
+
+    getRecipes(response);
+
+  })
 
   })
 
