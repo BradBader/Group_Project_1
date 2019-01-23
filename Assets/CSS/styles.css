@@ -24,9 +24,9 @@
  
  .brdsolid {border-style: solid, black, 2px}
  
- p {
+ /* p {
    line-height: 2rem;
- }
+ } */
  .mrt {margin-top: 25px;}
  
  .m10 {margin: 10px}
@@ -151,16 +151,20 @@
  
  }
  
- .fHeight { height: 600px;
-   overflow-y: scroll;
+ .fHeight { height: 550px;
+   /* overflow-y: scroll; */
  }
  
- p { margin: top 5px;
-   margin: bottom 5px;
+ p { margin-top: 0px;
+   margin-bottom: 5px;
    padding-top: 0px;
    padding-bottom: 0px;
  }
  
  .card-title {
    font-size: 20px
+ }
+
+ .pdb20 {
+   padding-bottom: 20px;
  }

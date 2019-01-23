@@ -3,6 +3,7 @@
         This is our first group project. We are integrating two APIS related to food, beverages and locations.
         The front end is designed with Materialize. The backend is Javascript, JSON and JQUERY.
     </title>
+
     <head>
         <!-- Google fonts pull -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,9 +12,10 @@
         <!-- My CSS pull -->
         <link href="Assets/CSS/styles.css" type="text/css" rel="stylesheet" media="screen,projection" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script> -->
         <script src="app.js"></script>
     </head>
+
     <body>
         <nav>
             <!-- <div class="container col l10 m10 s10 ctr"> -->
@@ -31,74 +33,123 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <br><br>
-                    <h1 class="header center white-text text-darken-2">Generic Placeholder Text</h1>
+                    <h1 class="header center white-text text-darken-2">What would you like to eat?</h1>
                     <br><br>
                 </div>
+
             </div>
             <div class="parallax"><img src="Assets/Images/pexels-photo-1565982.jpg" alt="Unsplashed background img 1">
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="container center">
+                <button id="foodD" class="waves-effect waves-light grey dark-1 btn-large" value="food"><i class="material-icons left">local_dining</i>Food</button>
+                <!-- <button class="waves-effect waves-light grey dark-1 btn-large" value="drink"><i class="material-icons left">local_drink</i>Beverage</button> -->
+                <button id="pickUp" class="waves-effect waves-light grey dark-1 btn-large" value="other"><i
+                        class="material-icons left">drive_eta</i>Pick
+                    Something Up</button>
             </div>
         </div>
         <div class="row">
             <div class="col l12  m12  s12">
-                <div class="card">
+                <div class="card z-depth-5">
                     <!-- <div class="card-image"> -->
                     <!-- <img class="flowhid" id="opac5" src="Assets/Images/cherry-food-fresh-890507.jpg"> -->
-                    <span class="card-title">
-                        <h3 class="center">What would you like to eat?</h3>
-                    </span>
-                </div>
-                <div class="card-content center">
-                    <div class="row">
-                        <button class="waves-effect waves-light grey dark-1 btn-large" value="food"><i class="material-icons left">local_dining</i>Food</button>
-                        <!-- <button class="waves-effect waves-light grey dark-1 btn-large" value="drink"><i class="material-icons left">local_drink</i>Beverage</button> -->
-                        <button class="waves-effect waves-light grey dark-1 btn-large" value="other"><i class="material-icons left">drive_eta</i>Pick
-                            Something Up</button>
-                    </div>
-                    <div class="row">
-                        <form class="col s3 offset-s2">
-                            <div class="input-field">
-                                <textarea id="include" class="materialize-textarea"></textarea>
-                                <label for="include">Include the following ingredients:</label>
-                            </div>
-                        </form>
-                        <form class="col s3">
-                            <!-- <div class="row"> -->
-                            <div class="input-field">
-                                <textarea id="exclude" class="materialize-textarea"></textarea>
-                                <label for="exclude">Exclude the following ingredients</label>
-                                <!-- </div> -->
-                            </div>
-                            <!-- <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med" type="submit"
+                    <!-- <span class="card-title"> -->
+                    <h3 class="center">What would you like to use?</h3>
+                    <!-- </span> -->
+                    <div class="card-content center">
+                        <div class="row" id="foodInputs">
+                            <form class="col s3 offset-s2">
+                                <div class="input-field">
+                                    <textarea id="include" class="materialize-textarea"></textarea>
+                                    <label for="include">Include the following ingredients:</label>
+                                </div>
+                            </form>
+                            <form class="col s3">
+                                <!-- <div class="row"> -->
+                                <div class="input-field">
+                                    <textarea id="exclude" class="materialize-textarea"></textarea>
+                                    <label for="exclude">Exclude the following ingredients</label>
+                                    <!-- </div> -->
+                                </div>
+                                <!-- <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med" type="submit"
                             name="action">Submit
                             <i class="material-icons right">send</i>
                         </button> -->
-                        </form>
-                        <div class="col s1">
-                            <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med mrb5" type="submit"
-                                name="action">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
+                            </form>
+                            <div class="col s1">
+                                <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med mrb5" type="submit"
+                                    name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
                         </div>
+                        <div class="row" id="restaraunt">
+
+                            <div class="input-field col s3 offset-s2" data-target="dropDown">
+                                <select id="dropDown">
+                                    <option value="1">American</option>
+                                    <option value="73">Mexican</option>
+                                    <option value="60">Japanese Food</option>
+                                    <option value="55">Italian Food</option>
+                                    <option value="25">Chinese Food</option>
+                                    <option value="153">Cuban Food</option>
+                                    <option value="928">Haitian Food</option>
+                                    <option value="83">Seafood</option>
+                                    <option value="95">Thai Food</option>
+                                </select>
+                                <label>Pick a type of cuisine.... OR DIE</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <textarea id="cityName" class="materialize-textarea"></textarea>
+                                <label for="cityName">What city would you like to eat in?</label>
+                            </div>
+                            <div class="col s1">
+                                <button class="btn waves-effect waves-light grey dark-1 submitTer mrb5" id="submitTer"
+                                    type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col s5 m5 l5">
-            <div class="card grey lighten-4">
-                <div class="card-content">
-                    <span class="card-title center">Yummy Recipes Here!</span>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                    <span class="card-title center"><h4 class="center">Ingredient List Below:</h4></span>
+                    <span class="card-title center"><h5 class="center pd10">Click an image to link to the recipe.</h5></span>
+                    <ul id="xxxxx">
                     <ul id="xxxxx">
                     </ul>
                 </div>
-                <!-- <div class="card-action">
+            </div>
+            <!-- <div class="card-action">
                         <a href="#">This is a link</a>
                         <a href="#">This is a link</a>
                     </div> -->
-            </div>
-        </div>
         </div>
         <div class="row center" id="recipeList">
-            
+
         </div>
         <div class="row center" id="recipeList2">
 
@@ -136,8 +187,8 @@
         <!-- 2nd Materialize javascript pull -->
         <script src="Assets/Javascript/init.js"></script>
         <!-- My Javascript pull -->
-        <script src="Assets/Javascript/logic.js"></script>
+        <!-- <script src="Assets/Javascript/logic.js"></script> -->
         <!-- Firebase pull -->
-        <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script> -->
     </body>
 </DOCTYPE>
