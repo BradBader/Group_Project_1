@@ -14,13 +14,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script> -->
         <script src="app.js"></script>
+        <!-- Niconne Font -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:700|Niconne|VT323" rel="stylesheet">
     </head>
 
     <body>
         <nav>
             <!-- <div class="container col l10 m10 s10 ctr"> -->
             <div class="nav-wrapper grey lighten-1">
-                <h5 class="center">a manDown Production</h5>
+                <h5 class="center mrtZero vt pdTop">a manDown Production</h5>
                 <!-- <a href="#" class="brand-logo center"></a> -->
                 <!-- <ul id="nav-mobile" class="right hide-on-med-and-down"> -->
                 <!-- <li><a href="sass.html">Sass</a></li>
@@ -33,7 +35,7 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <br><br>
-                    <h1 class="header center white-text text-darken-2">What would you like to eat?</h1>
+                    <h1 class="header center white-text text-darken-2 nic">What would you like to eat?</h1>
                     <br><br>
                 </div>
 
@@ -59,24 +61,24 @@
 
             </div>
             <div class="container center">
-                <button id="foodD" class="waves-effect waves-light grey dark-1 btn-large" value="food"><i class="material-icons left">local_dining</i>Food</button>
+                <button id="foodD" class="waves-effect waves-light grey dark-1 btn-large" value="food"><i class="material-icons left">local_dining</i>Dine
+                    in</button>
                 <!-- <button class="waves-effect waves-light grey dark-1 btn-large" value="drink"><i class="material-icons left">local_drink</i>Beverage</button> -->
-                <button id="pickUp" class="waves-effect waves-light grey dark-1 btn-large" value="other"><i
-                        class="material-icons left">drive_eta</i>Pick
+                <button id="pickUp" class="waves-effect waves-light grey dark-1 btn-large" value="other"><i class="material-icons left">drive_eta</i>Pick
                     Something Up</button>
             </div>
         </div>
         <div class="row">
             <div class="col l12  m12  s12">
-                <div class="card z-depth-5">
+                <div class="card z-depth-5 pdTop" id="functioningCard">
                     <!-- <div class="card-image"> -->
                     <!-- <img class="flowhid" id="opac5" src="Assets/Images/cherry-food-fresh-890507.jpg"> -->
                     <!-- <span class="card-title"> -->
-                    <h3 class="center">What would you like to use?</h3>
+                    <h3 class="center nic" id="using">What would you like to use?</h3>
                     <!-- </span> -->
                     <div class="card-content center">
                         <div class="row" id="foodInputs">
-                            <form class="col s3 offset-s2">
+                            <form class="col s3 offset-s3">
                                 <div class="input-field">
                                     <textarea id="include" class="materialize-textarea"></textarea>
                                     <label for="include">Include the following ingredients:</label>
@@ -95,11 +97,15 @@
                         </button> -->
                             </form>
                             <div class="col s1">
-                                <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med mrb5" type="submit"
-                                    name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
+
                             </div>
+                        </div>
+                        <div class="row" id="foodInputs">
+                            <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med mrb5 pulse" type="submit"
+                                name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+
                         </div>
                         <div class="row" id="restaraunt">
 
@@ -122,7 +128,7 @@
                                 <label for="cityName">What city would you like to eat in?</label>
                             </div>
                             <div class="col s1">
-                                <button class="btn waves-effect waves-light grey dark-1 submitTer mrb5" id="submitTer"
+                                <button class="btn waves-effect waves-light grey dark-1 submitTer mrb5 pulse" id="submitTer"
                                     type="submit" name="action">Submit
                                     <i class="material-icons right">send</i>
                                 </button>
@@ -134,16 +140,17 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="instructions">
             <div class="col s12 m12 l12">
-                    <span class="card-title center"><h4 class="center">Ingredient List Below:</h4></span>
-                    <span class="card-title center"><h5 class="center pd10">Click an image to link to the recipe.</h5></span>
-                    <ul id="xxxxx">
-                    <ul id="xxxxx">
-                    </ul>
-                </div>
+                <span class="card-title center">
+                    <h3 class="center nic">Ingredient List Below:</h3>
+                </span>
+                <span class="card-title center">
+                    <h4 class="center pd10 nic">Click an image to link to the recipe.</h4>
+                </span>
             </div>
-            <!-- <div class="card-action">
+        </div>
+        <!-- <div class="card-action">
                         <a href="#">This is a link</a>
                         <a href="#">This is a link</a>
                     </div> -->
@@ -166,17 +173,17 @@
                         <!-- <h5 class="white-text">Links</h5>
                       <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
-                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-copyright grey darken-1">
-                <div class="container center">
+                <div class="container center vt">
                     © manDown production 2019
                     <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
                 </div>
             </div>
         </footer>
+
         <!-- <div class="col l4 m4 s4">
                     <h1> generic placeholder text left container</h1>
                 </div> -->
