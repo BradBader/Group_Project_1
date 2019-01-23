@@ -6,8 +6,11 @@ $(document).ready(function () {
   // initializes dropdown
   $('select').formSelect();
   //hides restaraunt row on page load
-  $("#restaraunt").hide()
-  $("#foodInputs").hide()
+  $("#restaraunt").hide();
+  $("#foodInputs").hide();
+  $("#functioningCard").hide();
+  $("#using").hide();
+  $("#instructions").hide()
   //Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
   function getRecipes(x) {
     //Clears any previous content where the Recipes will be displayed
@@ -53,10 +56,16 @@ $(document).ready(function () {
   $("#pickUp").on("click", function () {
     $("#restaraunt").show();
     $("#foodInputs").hide();
+    $("#functioningCard").show();
+    $("#instructions").hide();
+
   })
   $("#foodD").on("click", function () {
     $("#foodInputs").show();
     $("#restaraunt").hide();
+    $("#functioningCard").show();
+    $("#using").show();
+
   })
 
 
@@ -113,6 +122,9 @@ $(document).ready(function () {
 
     //Prevents the listener to continue with a blank search
     event.preventDefault();
+
+    //shows the instructions row
+    $("#instructions").show();
 
     //Runs the Ingredient and Exclution functions in order to make sure the values are inputted correctly
     var ingredient = ingSearch($("#include").val().trim());
