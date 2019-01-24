@@ -77,8 +77,8 @@
                     <h3 class="center nic" id="using">What would you like to use?</h3>
                     <!-- </span> -->
                     <div class="card-content center">
-                        <div class="row" id="foodInputs">
-                            <form class="col s3 offset-s3">
+                        <div class="row mrb0" id="foodInputs">
+                            <form class="col s3 offset-s3 mrb0">
                                 <div class="input-field">
                                     <textarea id="include" class="materialize-textarea"></textarea>
                                     <label for="include">Include the following ingredients:</label>
@@ -86,7 +86,7 @@
                             </form>
                             <form class="col s3">
                                 <!-- <div class="row"> -->
-                                <div class="input-field">
+                                <div class="input-field mrb0">
                                     <textarea id="exclude" class="materialize-textarea"></textarea>
                                     <label for="exclude">Exclude the following ingredients</label>
                                     <!-- </div> -->
@@ -96,20 +96,17 @@
                             <i class="material-icons right">send</i>
                         </button> -->
                             </form>
-                            <div class="col s1">
-
-                            </div>
                         </div>
-                        <div class="row" id="foodInputs">
-                            <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med mrb5 pulse" type="submit"
+                        <div id="foodInputsSubmit">
+                            <button id="submit" class="btn waves-effect grey dark-1 waves-light btn-med pulse" type="submit"
                                 name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
 
                         </div>
-                        <div class="row" id="restaraunt">
+                        <div class="row mrb0" id="restaraunt">
 
-                            <div class="input-field col s3 offset-s2" data-target="dropDown">
+                            <div class="input-field col s3 offset-s3 mrb0" data-target="dropDown">
                                 <select id="dropDown">
                                     <option value="1">American</option>
                                     <option value="73">Mexican</option>
@@ -121,21 +118,19 @@
                                     <option value="83">Seafood</option>
                                     <option value="95">Thai Food</option>
                                 </select>
-                                <label>Pick a type of cuisine.... OR DIE</label>
+                                <label>Pick a type of cuisine.</label>
                             </div>
-                            <div class="input-field col s3">
+                            <div class="input-field col s3 mrb0">
                                 <textarea id="cityName" class="materialize-textarea"></textarea>
                                 <label for="cityName">What city would you like to eat in?</label>
                             </div>
-                            <div class="col s1">
-                                <button class="btn waves-effect waves-light grey dark-1 submitTer mrb5 pulse" id="submitTer"
-                                    type="submit" name="action">Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
-
                         </div>
-
+                        <div id="pickUpSubmit">
+                            <button class="btn waves-effect waves-light grey dark-1 submitTer pulse" id="submitTer"
+                                type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,10 +145,6 @@
                 </span>
             </div>
         </div>
-        <!-- <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
-                    </div> -->
         </div>
         <div class="row center" id="recipeList">
 
@@ -161,28 +152,24 @@
         <div class="row center" id="recipeList2">
 
         </div>
-        <footer class="page-footer grey darken-5">
+        <footer class="page-footer grey darken-5 footerStart">
             <div class="container center">
                 <div class="row">
                     <div class="col l12 s12">
-                        <!-- <h5 class="white-text">Footer Content</h5> -->
                         <img class="brand-logo height50 center" src="Assets/Images/manDown.png">
-                        <!-- <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p> -->
                     </div>
                     <div class="col l4 offset-l2 s12">
-                        <!-- <h5 class="white-text">Links</h5>
-                      <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li> -->
                     </div>
                 </div>
             </div>
             <div class="footer-copyright grey darken-1">
                 <div class="container center vt">
                     © manDown production 2019
-                    <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
                 </div>
             </div>
         </footer>
+
+              
 
         <!-- <div class="col l4 m4 s4">
                     <h1> generic placeholder text left container</h1>
