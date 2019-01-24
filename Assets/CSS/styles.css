@@ -24,9 +24,9 @@
  
  .brdsolid {border-style: solid, black, 2px}
  
- p {
+ /* p {
    line-height: 2rem;
- }
+ } */
  .mrt {margin-top: 25px;}
  
  .m10 {margin: 10px}
@@ -115,14 +115,15 @@
  }
  
  body {
-   display: flex;
-   min-height: 100vh;
-   flex-direction: column;
- }
- 
- main {
-   flex: 1 0 auto;
- }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+    
  
  .height50 {height: 60px;
    width: auto}
@@ -147,20 +148,48 @@
  .pd10 { padding-left: 10px;
      padding-right: 10px;
    padding-top: 0px;
-   padding-bottom: 0px;
+   padding-bottom: 15px;
  
  }
  
- .fHeight { height: 600px;
-   overflow-y: scroll;
+ .fHeight { height: 550px;
+   /* overflow-y: scroll; */
  }
  
- p { margin: top 5px;
-   margin: bottom 5px;
+ p { margin-top: 0px;
+   margin-bottom: 5px;
    padding-top: 0px;
    padding-bottom: 0px;
+   font-family: 'Merriweather', serif;
  }
  
  .card-title {
-   font-size: 20px
+   font-size: 20px;
+   font-family: 'Merriweather', serif;
  }
+
+ .pdb20 {
+   padding-bottom: 20px;
+ }
+
+ .mrtZero {
+   margin-top: 0px;
+ }
+
+ .nic {
+  font-family: 'Niconne', cursive;
+ }
+
+ .vt {
+  font-family: 'VT323', monospace;
+ }
+
+ .pdTop {
+   padding-top: 10px;
+ }
+
+ .mrb0 {margin-bottom: 0px;}
+
+ .footerStart {position: absolute;
+        bottom: 0; 
+      width: 100%;}
