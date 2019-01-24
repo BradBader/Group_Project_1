@@ -5,12 +5,16 @@ var foodType;
 $(document).ready(function () {
   // initializes dropdown
   $('select').formSelect();
-  //hides restaraunt row on page load
+
+  //hides submit buttons, dine in, and pickup options on page load
   $("#restaraunt").hide();
   $("#foodInputs").hide();
+  $("#foodInputsSubmit").hide();
   $("#functioningCard").hide();
   $("#using").hide();
   $("#instructions").hide()
+  $("#pickUpSubmit").hide()
+
   //Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
   function getRecipes(x) {
     //Clears any previous content where the Recipes will be displayed
@@ -52,23 +56,31 @@ $(document).ready(function () {
     foodCity = $("#cityName").val().trim();
     console.log(foodType);
     console.log(foodCity);
+    $("footer").removeClass("footerStart")
   })
+  // on pickup click, hides dine in options, shows pickup options
   $("#pickUp").on("click", function () {
     $("#restaraunt").show();
     $("#foodInputs").hide();
-    $("#functioningCard").show();
+    $("#foodInputsSubmit").hide();
     $("#instructions").hide();
-
+    $("#functioningCard").show();
+    $("#pickUpSubmit").show()
+    $("#recipeList").empty();
+    $("#recipeList2").empty();
+    $("footer").addClass("footerStart")
   })
+
+  // on dine in click, hides pickup options, shows dine in options
   $("#foodD").on("click", function () {
     $("#foodInputs").show();
     $("#restaraunt").hide();
     $("#functioningCard").show();
     $("#using").show();
-
+    $("#foodInputsSubmit").show();
+    $("#pickUpSubmit").hide()
+    $("footer").addClass("footerStart")
   })
-
-
 
   //Function that takes the input from the "Ingredients" form and separates them, trims them and returns a variable to be inserted into the Query URL
   function ingSearch(p) {
@@ -122,8 +134,8 @@ $(document).ready(function () {
 
     //Prevents the listener to continue with a blank search
     event.preventDefault();
-
-    //shows the instructions row
+    $("footer").removeClass("footerStart")
+    //shows the instructions
     $("#instructions").show();
 
     //Runs the Ingredient and Exclution functions in order to make sure the values are inputted correctly

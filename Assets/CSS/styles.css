@@ -114,15 +114,16 @@
    text-shadow: 1px 1px #fff;
  }
  
- /* body {
-   display: flex;
-   min-height: 100vh;
-   flex-direction: column;
- }
- 
- main {
-   flex: 1 0 auto;
- } */
+ body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+    
  
  .height50 {height: 60px;
    width: auto}
@@ -187,3 +188,8 @@
    padding-top: 10px;
  }
 
+ .mrb0 {margin-bottom: 0px;}
+
+ .footerStart {position: absolute;
+        bottom: 0; 
+      width: 100%;}
