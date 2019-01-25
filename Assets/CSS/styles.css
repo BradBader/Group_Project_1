@@ -161,6 +161,7 @@ main {
    padding-top: 0px;
    padding-bottom: 0px;
    font-family: 'Merriweather', serif;
+   font-size: 12px;
  }
  
  .card-title {
@@ -190,6 +191,15 @@ main {
 
  .mrb0 {margin-bottom: 0px;}
 
- .footerStart {position: absolute;
-        bottom: 0; 
-      width: 100%;}
+ li {margin-top: 0px;
+  margin-bottom: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+ }
+
+ .liHeight { height: 250px;
+
+ }
+
