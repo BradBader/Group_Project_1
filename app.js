@@ -1,5 +1,5 @@
 var ingredientsArray = [];
-var cityName;
+var foodCity;
 var foodType;
 
 $(document).ready(function () {
@@ -44,16 +44,35 @@ $(document).ready(function () {
     }
   };
   // sets foodType variable to dropdown menu selection
-  $("#submitTer").on("click", function () {
+  $("#submitTer").on("click", function (event) {
+    event.preventDefault();
+
     foodType = $("#dropDown").val().trim();
     foodCity = $("#cityName").val().trim();
-    console.log(foodType);
-    console.log(foodCity);
-  })
+
+   var apiKey = "273331ea460eeca63bfcf2af46d9a0c9";
+   var cityURL = "https://developers.zomato.com/api/v2.1/cities?q=" + foodCity;
+   
+    $.ajax({
+      url: cityURL,
+      beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
+      apiKey);},  // This inserts the api key into the HTTP header
+      method: "GET"
+      
+    }).then(function (response) {
+      console.log(response);
+      getRestaurants(response, foodType);
+  
+    })
+  });
+
+
   $("#pickUp").on("click", function () {
     $("#restaraunt").show();
     $("#foodInputs").hide();
   })
+
+
   $("#foodD").on("click", function () {
     $("#foodInputs").show();
     $("#restaraunt").hide();
@@ -104,9 +123,74 @@ $(document).ready(function () {
     }
     return recipeText;
   }
-  function getRestaurants() {
+  function getRestaurants(o,p) {
+    var cityID = o.location_suggestions[0].id;
+    var resURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityID + "&entity_type=city" + "&cuisines=" + p;
+    var apiKey = "273331ea460eeca63bfcf2af46d9a0c9";
+    $.ajax({
+      url: resURL,
+      beforeSend: function(xhr){xhr.setRequestHeader('user-key', 
+      apiKey);},  // This inserts the api key into the HTTP header
+      method: "GET"
+      
+    }).then(function (response) {
+      console.log(response);
+      restList(response);
+    })
 
   };
+
+  function restList(k)
+  {
+     //Clears any previous content where the Recipes will be displayed
+     $("#recipeList").empty();
+     $("#recipeList2").empty();
+     var restResults = k.restaurants;
+     console.log(restResults);
+     //Cycles through all the results to separate them into their own cards. 
+ 
+     for (var i = 0; i < 10; i++) {
+       if (i == 0 || i == 5) {
+         var rCol = $("<div>").addClass("col s2 offset-s1");
+       } else {
+         var rCol = $("<div>").addClass("col s2");
+       }
+       
+       var restName = restResults[i].restaurant.name;
+       
+       var restReview = $("<li>").text("Average User Review: " + restResults[i].restaurant.user_rating.aggregate_rating + "/5");
+       var avCost = $("<li>").text("Average Cost for Two: $" + restResults[i].restaurant.average_cost_for_two);
+       var restLocation = $("<li>").text("Address: " + restResults[i].restaurant.location.address + "," + restResults[i].restaurant.location.city + "," + restResults[i].restaurant.location.zipcode);
+       var infoList = $("<ul>").append(restReview, avCost, restLocation);
+       var restImg = restResults[i].restaurant.featured_image;
+
+       var rCard = $("<div>").addClass("card left");
+
+       if(restImg != ""){
+        var rImg = $("<img>").addClass("activator").attr("src", restImg);
+       }else{
+        var rImg = $("<img>").addClass("activator").attr("src", "food-placeholder.jpg");
+       };
+
+       var imgDiv = $("<div>").addClass("card-image waves-effect waves-block waves-light").append(rImg);
+       var rTitle = $("<span>").addClass("card-title activator center pd10").text(restName);
+       var rContent = $("<div>").addClass("card-content").append(rTitle);
+       rTitle.append(infoList);
+       var rReveal = $("<div>").addClass("card-reveal").append(rTitle);
+
+       var menuUrl = restResults[i].menu_url;
+       var rLink = $("<a>").attr("href", menuUrl).attr("target", "_blank");
+    
+       rCard.append(imgDiv, rContent, rReveal);
+       rCol.append(rCard);
+       if (i <= 4) {
+ 
+         $("#recipeList").append(rCol);
+       } else {
+         $("#recipeList2").append(rCol);
+       }
+     }
+   };
 
   //Creates an event listener that waits for the user to click the "Submit" button in order to begin the recipe search
   $("#submit").on("click", function (event) {
@@ -146,30 +230,6 @@ $(document).ready(function () {
     $("#include").val("");
     $("#exclude").val("");
   });
-
-  $("#drinks-submit").on("click", function () {
-
-
-
-  })
-
-  $("#restaurant-submit").on("click", function () {
-    event.preventDefault();
-
-   var userCity = $("#ciyName").val().trim();
-   var userType = $("#restaurant").val();
-
-   
-   $.ajax({
-    url: foodURL,
-    method: "GET"
-  }).then(function (response) {
-
-    getRecipes(response);
-
-  })
-
-  })
 
 })
 
