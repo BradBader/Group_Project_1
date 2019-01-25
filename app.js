@@ -54,6 +54,7 @@ $(document).ready(function () {
   $("#submitTer").on("click", function (event) {
     event.preventDefault();
 
+    
     foodType = $("#dropDown").val().trim();
     foodCity = $("#cityName").val().trim();
 
@@ -83,7 +84,8 @@ $(document).ready(function () {
     $("#pickUpSubmit").show()
     $("#recipeList").empty();
     $("#recipeList2").empty();
-    $("footer").addClass("footerStart")
+    $("footer").removeClass("footerStart")
+    
   })
 
     $("#foodD").on("click", function () {
@@ -93,7 +95,7 @@ $(document).ready(function () {
     $("#using").show();
     $("#foodInputsSubmit").show();
     $("#pickUpSubmit").hide()
-    $("footer").addClass("footerStart")
+    $("footer").removeClass("footerStart")
   })
 
   //Function that takes the input from the "Ingredients" form and separates them, trims them and returns a variable to be inserted into the Query URL
