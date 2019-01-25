@@ -14,6 +14,7 @@ $(document).ready(function () {
   $("#using").hide();
   $("#instructions").hide()
   $("#pickUpSubmit").hide()
+  $("#instructions2").hide()
 
   //Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
   function getRecipes(x) {
@@ -53,7 +54,7 @@ $(document).ready(function () {
   // sets foodType variable to dropdown menu selection
   $("#submitTer").on("click", function (event) {
     event.preventDefault();
-
+    $("#instructions2").show()
     
     foodType = $("#dropDown").val().trim();
     foodCity = $("#cityName").val().trim();
@@ -85,12 +86,15 @@ $(document).ready(function () {
     $("#recipeList").empty();
     $("#recipeList2").empty();
     $("footer").removeClass("footerStart")
+    $("#instructions2").hide()
+
     
   })
 
     $("#foodD").on("click", function () {
     $("#foodInputs").show();
     $("#restaraunt").hide();
+    $("#instructions2").hide()
     $("#functioningCard").show();
     $("#using").show();
     $("#foodInputsSubmit").show();
