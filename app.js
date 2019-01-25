@@ -18,6 +18,7 @@ $(document).ready(function () {
   $("#using").hide();
   $("#instructions").hide()
   $("#pickUpSubmit").hide()
+  $("#instructions2").hide()
 
   //Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
   function getRecipes(x) {
@@ -67,7 +68,12 @@ $(document).ready(function () {
   $("#submitTer").on("click", function (event) {
     event.preventDefault();
 
+
   //Grabs the user's input and assigns them to the variables that will be used for the rest of the process.
+
+    $("#instructions2").show()
+    
+
     foodType = $("#dropDown").val().trim();
     foodCity = $("#cityName").val().trim();
 
@@ -101,13 +107,15 @@ $(document).ready(function () {
     $("#recipeList").empty();
     $("#recipeList2").empty();
     $("#recipeList3").empty();
-    $("footer").addClass("footerStart")
+    $("footer").removeClass("footerStart")
+    $("#instructions2").hide()
   })
 
 //Function that shows the restaurant search options and hides the recipe search options  
     $("#foodD").on("click", function () {
     $("#foodInputs").show();
     $("#restaraunt").hide();
+    $("#instructions2").hide()
     $("#functioningCard").show();
     $("#using").show();
     $("#foodInputsSubmit").show();
@@ -115,7 +123,7 @@ $(document).ready(function () {
     $("#recipeList").empty();
     $("#recipeList2").empty();
     $("#recipeList3").empty();
-    $("footer").addClass("footerStart")
+    $("footer").removeClass("footerStart")
   })
 
 //Function that takes the input from the "Ingredients" form and separates them, trims them and returns a variable to be inserted into the Query URL
