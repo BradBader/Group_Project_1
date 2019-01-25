@@ -141,7 +141,7 @@ $(document).ready(function () {
   }
   function getRestaurants(o,p) {
     var cityID = o.location_suggestions[0].id;
-    var resURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityID + "&entity_type=city" + "&cuisines=" + p;
+    var resURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityID + "&entity_type=city" + "&cuisines=" + p + "&count=9";
     var apiKey = "273331ea460eeca63bfcf2af46d9a0c9";
     $.ajax({
       url: resURL,
@@ -161,16 +161,21 @@ $(document).ready(function () {
      //Clears any previous content where the Recipes will be displayed
      $("#recipeList").empty();
      $("#recipeList2").empty();
+     $("#recipeList3").empty();
      var restResults = k.restaurants;
      console.log(restResults);
      //Cycles through all the results to separate them into their own cards. 
  
-     for (var i = 0; i < 10; i++) {
-       if (i == 0 || i == 5) {
-         var rCol = $("<div>").addClass("col s2 offset-s1");
-       } else {
-         var rCol = $("<div>").addClass("col s2");
-       }
+     for (var i = 0; i < 9; i++) {
+      //  if (i == 0) {
+      //    var rCol = $("<div>").addClass("col s3 offset-s1");
+      //  } else if (i==3 || i == 5) {
+      //    var rCol = $("<div>").addClass("col s3 offset-s1");
+      //  } else if(i==6 || i==8){
+      //   var rCol = $("<div>").addClass("col s3 offset-s1");
+      //  }else{
+        var rCol = $("<div>").addClass("col s3 offset-s1");
+      //  }
        
        var restName = restResults[i].restaurant.name;
        
@@ -180,7 +185,7 @@ $(document).ready(function () {
        var infoList = $("<ul>").append(restReview, avCost, restLocation);
        var restImg = restResults[i].restaurant.featured_image;
 
-       var rCard = $("<div>").addClass("card left");
+       var rCard = $("<div>").addClass("card left liHeight");
 
        if(restImg != ""){
         var rImg = $("<img>").addClass("activator").attr("src", restImg);
@@ -199,11 +204,13 @@ $(document).ready(function () {
     
        rCard.append(imgDiv, rContent, rReveal);
        rCol.append(rCard);
-       if (i <= 4) {
+       if (i <= 2) {
  
          $("#recipeList").append(rCol);
-       } else {
+       } else if(i<=5) {
          $("#recipeList2").append(rCol);
+       }else{
+        $("#recipeList3").append(rCol);
        }
      }
    };
