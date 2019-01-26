@@ -16,9 +16,10 @@ $(document).ready(function () {
   $("#foodInputsSubmit").hide();
   $("#functioningCard").hide();
   $("#using").hide();
-  $("#instructions").hide()
-  $("#pickUpSubmit").hide()
-  $("#instructions2").hide()
+  $("#instructions").hide();
+  $("#pickUpSubmit").hide();
+  $("#instructions2").hide();
+  $("#going").hide();
 
   //Function that takes the response from the AJAX request and separates it into the necessary elements in order to create a card for each recipe.
   function getRecipes(x) {
@@ -105,8 +106,11 @@ $(document).ready(function () {
     $("#foodInputs").hide();
     $("#foodInputsSubmit").hide();
     $("#instructions").hide();
+    $("#eatIn").hide();
+    $("#using").hide();
     $("#functioningCard").show();
     $("#pickUpSubmit").show()
+    $("#going").show();
     $("#recipeList").empty();
     $("#recipeList2").empty();
     $("#recipeList3").empty();
@@ -119,6 +123,7 @@ $(document).ready(function () {
     $("#foodInputs").show();
     $("#restaraunt").hide();
     $("#instructions2").hide()
+    $("#going").hide();
     $("#functioningCard").show();
     $("#using").show();
     $("#foodInputsSubmit").show();
