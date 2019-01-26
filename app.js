@@ -68,14 +68,16 @@ $(document).ready(function () {
   $("#submitTer").on("click", function (event) {
     event.preventDefault();
 
-
+    foodType = $("#dropDown").val().trim();
+    foodCity = $("#cityName").val().trim();
+  
+  //Makes sure the search isn't executed if there was nothing written in the search bar
+    if(foodCity != "")
+  {
   //Grabs the user's input and assigns them to the variables that will be used for the rest of the process.
 
     $("#instructions2").show()
     
-
-    foodType = $("#dropDown").val().trim();
-    foodCity = $("#cityName").val().trim();
 
   //Prepares the Query URL for the first AJAX call
    var apiKey = "273331ea460eeca63bfcf2af46d9a0c9";
@@ -94,6 +96,7 @@ $(document).ready(function () {
       getRestaurants(response, foodType);
   
     })
+  }
   });
 
 //Function that shows the restaurant search options and hides the recipe search options
@@ -272,14 +275,17 @@ $(document).ready(function () {
 
     //Prevents the listener to continue with a blank search
     event.preventDefault();
-    $("footer").removeClass("footerStart")
-    //shows the instructions
-    $("#instructions").show();
 
     //Runs the Ingredient and Exclution functions in order to make sure the values are inputted correctly
     var ingredient = ingSearch($("#include").val().trim());
     var exclude = exclSearch($("#exclude").val().trim());
     var foodURL = "";
+
+    if (ingredient != "")
+    {
+    $("footer").removeClass("footerStart")
+    //shows the instructions
+    $("#instructions").show();
 
     //Creates a variable with the API Key and ID for the Edamam API
     var key = "app_key=3d809e0fa0e02efd9cc77818c1a35988";
@@ -306,6 +312,7 @@ $(document).ready(function () {
     //Clears the "Include" and "Exclude" forms getting ready for the next search
     $("#include").val("");
     $("#exclude").val("");
+  }
   });
 
 })
